@@ -16,7 +16,7 @@ const Breadcrumbs = (props: propsTypes) => {
             <Col lg="6">
               <OL className="breadcrumb">
                 <BreadcrumbItem>
-                  <Link to={`${process.env.PUBLIC_URL}/dashboard/business`}>
+                  <Link to={`${process.env.PUBLIC_URL}/dashboard/enterprise`}>
                     <i className="f-16 fa fa-home"></i>
                   </Link>
                 </BreadcrumbItem>

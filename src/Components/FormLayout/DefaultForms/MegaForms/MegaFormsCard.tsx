@@ -7,7 +7,7 @@ import HeadingCommon from "../../../../Common/HeadingCommon";
 const MegaFormsCard = () => {
   return (
     <Col sm="12" md="12" lg ="12">
-      <Card>
+      <Card className="card-custom">
         <HeadingCommon Heading={EventTrigger} />
         <MegaFormCardBody />
         <MegaFormCardFooter />

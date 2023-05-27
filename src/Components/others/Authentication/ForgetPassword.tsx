@@ -14,7 +14,7 @@ const ForgetPassword = () => {
               <div className="auth-innerright auth-minibox">
                 <div className="reset-password-box">
                   <div className="text-center">
-                    <Image src={dynamicImage("other-images/xolo-logo.png")} alt="logo"/>
+                    <Image src={dynamicImage("other-images/logo_dark.png")} alt="logo"/>
                   </div>
                   <Card className="mt-4 mb-0">
                     <H4>{ResetYourPassword}</H4>

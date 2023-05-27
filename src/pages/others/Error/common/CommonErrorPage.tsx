@@ -41,7 +41,7 @@ const CommonErrorPage = ({
           <div>
             <Link
               className={`btn  ${BtnClassName} btn-lg `}
-              to={`${process.env.PUBLIC_URL}/dashboard/business`}
+              to={`${process.env.PUBLIC_URL}/dashboard/enterprise`}
             >
               {BackToHomePage}
             </Link>

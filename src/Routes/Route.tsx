@@ -124,9 +124,9 @@ import SearchVideo from "../pages/others/SearchPages/SearchVideo";
 import SearchImages from "../pages/others/SearchPages/SearchImages";
 const routes = [
   // dashboard routes
-  { path: `${process.env.PUBLIC_URL}/dashboard/business`, Component: <BusinessDashboard /> },
-  { path: `${process.env.PUBLIC_URL}/dashboard/help-desk`, Component: <HelpdeskDashboard /> },
-  { path: `${process.env.PUBLIC_URL}/dashboard/social`, Component: <SocialDashboard /> },
+  // { path: `${process.env.PUBLIC_URL}/dashboard/business`, Component: <BusinessDashboard /> },
+  // { path: `${process.env.PUBLIC_URL}/dashboard/help-desk`, Component: <HelpdeskDashboard /> },
+  // { path: `${process.env.PUBLIC_URL}/dashboard/social`, Component: <SocialDashboard /> },
   { path: `${process.env.PUBLIC_URL}/dashboard/enterprise`, Component: <Enterprise /> },
 
   //widgets routes

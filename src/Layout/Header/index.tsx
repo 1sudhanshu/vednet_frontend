@@ -19,7 +19,7 @@ import Language from "./Language";
 const Header = () => {
    const  dispatch =useDispatch()
   const {toggleThemeCustomizer,toggleIcon  } = useSelector((state:ThemeCustomizerTypes) => state.ThemeCustomizer);
-
+  
   const [toogleNav, setToogleNav] = useState(false);
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -39,10 +39,11 @@ const Header = () => {
           <Switch />
           <Col className="nav-right  pull-right right-menu">
             <UL className={`nav-menus flex-row simple-list ${toogleNav ? "open" : ""} `}>
-              <SearchBar />
+            <DarkMode />
+              {/* <SearchBar />
               <Language/>
               <Bookmarks/>  
-              <DarkMode/>
+             
               <BellCompo />
               <Message />
               <FullScreen />
@@ -52,7 +53,7 @@ const Header = () => {
                     dispatch({ type: "setToggleThemeCustomizer", payload: !toggleThemeCustomizer });
                   }}
                 />
-              </LI>
+              </LI> */}
               <UserProfile />
             </UL>
           </Col>

@@ -3,11 +3,24 @@
     03.  Card CSS Start
 ==========================**/
 //Card css
+
+.card-custom{
+  margin-bottom: $card-margin-bottom;
+  border: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  justify-items: center;
+  border-radius: $card-border-radious;
+  width: 100vh;
+  box-shadow: $card-box-shadow;
+  margin-left: 15vh;
+}
 .card{
   margin-bottom: $card-margin-bottom;
   border: none;
   transition: all 0.3s ease;
   letter-spacing: 0.5px;
+  justify-items: center;
   border-radius: $card-border-radious;
   box-shadow: $card-box-shadow;
   .card-header{
@@ -76,7 +89,6 @@
       right: 20px;
       top: 22px;
       display: inline-block;
-      float: right;
       padding: 8px 0;
       position: absolute;
       background-color: $white;

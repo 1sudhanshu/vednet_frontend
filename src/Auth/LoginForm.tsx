@@ -16,7 +16,7 @@ const LoginForm = () => {
     if (email === "test123@gmail.com" && password === "Test@123") {
       localStorage.setItem("login", JSON.stringify(true));
       toast.success("Login Success...!");
-      navigate(`${process.env.PUBLIC_URL}/dashboard/business`);
+      navigate(`${process.env.PUBLIC_URL}/dashboard/enterprise`);
     } else {
       toast.error("Please Enter valid email or password...!");
     }

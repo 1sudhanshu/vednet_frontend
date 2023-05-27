@@ -7,9 +7,9 @@ const LeftHeader = () => {
   };
   return (
     <div className="main-header-left">
-      <div className="logo-wrapper">
-      <Link to={`${process.env.PUBLIC_URL}/dashboard/business`}>
-        <Image body={true} src={dynamicImage("logo.png")} alt="logo" />     
+      <div className="logo-wrapper" >
+      <Link to={`${process.env.PUBLIC_URL}/dashboard/enterprise`}>
+        <Image body={true} src={dynamicImage("logo_dark.png")} alt="logo"/>     
       </Link>
       </div> 
     </div>

@@ -12,11 +12,11 @@ const Routers = () => {
       <Routes>
         {login ? (
           <>
-            <Route path={`${process.env.PUBLIC_URL}`} element={<Navigate to={`${process.env.PUBLIC_URL}/dashboard/business`} />}/>
+            <Route path={`${process.env.PUBLIC_URL}`} element={<Navigate to={`${process.env.PUBLIC_URL}/dashboard/enterprise`} />}/>
             <Route
               path={`/`}
               element={
-                <Navigate to={`${process.env.PUBLIC_URL}/dashboard/business`} />
+                <Navigate to={`${process.env.PUBLIC_URL}/dashboard/enterprise`} />
               }
             />
           </>

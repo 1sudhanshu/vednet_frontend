@@ -1,8 +1,8 @@
 {
-  "name": "xoloreact",
+  "name": "vednet",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://react.pixelstrap.net/xolo/",
+  "homepage": "",
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^37.1.0",
     "@ckeditor/ckeditor5-react": "^6.0.0",
