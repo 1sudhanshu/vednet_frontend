@@ -18,7 +18,7 @@ const Maintenance = () => {
           </div>
           <H4 className="sub-content">{UnderMaintenance}<br />{ThankYouForPatience}</H4>
           <div>
-            <Link to={`${process.env.PUBLIC_URL}/dashboard/enterprise`} className="btn btn-primary-gradien btn-lg text-light">
+            <Link to={`${process.env.PUBLIC_URL}/dashboard/business`} className="btn btn-primary-gradien btn-lg text-light">
               {BackToHomePage}
             </Link>
           </div>

@@ -21,7 +21,7 @@ const MENUITEMS = [
     // menu: [
     //   {
     //     title: "Business",
-    //     url: `${process.env.PUBLIC_URL}/dashboard/enterprise`,
+    //     url: `${process.env.PUBLIC_URL}/dashboard/business`,
     //     type:"link"
     //   },
     //   {
