@@ -1,0 +1,60 @@
+import { Cancle, LongEstablished, PainCanProcure, Pending, ProductCardDetailsHeading, Return, classicalLatinLiterature, keepTheSiteOnTheInternet, molestiaeConsequatur, pending, sometimesByAccident } from "../../../Constant";
+
+export  let ProductCardDatas = [
+    {
+      Details: ProductCardDetailsHeading,
+      Quantity: 1,
+      Status: Pending,
+      Price: 6523,
+      PriceClass: " pill-badge-secondary",
+      fontClass: "font-primary",
+    },
+    {
+      Details: LongEstablished,
+      Quantity: 5,
+      Status: Cancle,
+      Price: 6523,
+      PriceClass: "pill-badge-success",
+      fontClass: "font-secondary",
+    },
+    {
+      Details: sometimesByAccident,
+      Quantity: 10,
+      Status: Cancle,
+      Price: 6523,
+      PriceClass: " pill-badge-warning",
+      fontClass: "font-secondary",
+    },
+    {
+      Details: classicalLatinLiterature,
+      Quantity: 9,
+      Status: Return,
+      Price: 6523,
+      PriceClass: " pill-badge-primary",
+      fontClass: "font-primary",
+    },
+    {
+      Details: keepTheSiteOnTheInternet,
+      Quantity: 8,
+      Status: pending,
+      Price: 6523,
+      PriceClass: "pill-badge-danger",
+      fontClass: "font-primary",
+    },
+    {
+      Details: molestiaeConsequatur,
+      Quantity: 3,
+      Status: Cancle,
+      Price: 6523,
+      PriceClass: "pill-badge-info",
+      fontClass: "font-secondary",
+    },
+    {
+      Details: PainCanProcure,
+      Quantity: 8,
+      Status: Return,
+      Price: 6523,
+      PriceClass: "pill-badge-primary",
+      fontClass: "font-primary",
+    },
+  ];

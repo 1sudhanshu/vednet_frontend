@@ -1,0 +1,60 @@
+import { AlertCircle, AlertTriangle, Bell, Heart, HelpCircle, ThumbsDown, ThumbsUp } from "react-feather";
+
+export const dataWithIcon = [
+    {
+      closeBtn: true,
+      id: 2,
+      alertTxt: "You can check in on some of those fields below.",
+      alertColor: "secondary dark",
+      btnClose: "default",
+      icon: <Heart />,
+    },
+    {
+      closeBtn: true,
+      id: 3,
+      alertTxt: "You can check in on some of those fields below.",
+      alertColor: "success dark",
+      btnClose: "default",
+      icon: <ThumbsUp />,
+    },
+    {
+      closeBtn: true,
+      id: 4,
+      alertTxt: "You can check in on some of those fields below.",
+      alertColor: "info dark",
+      btnClose: "default",
+      icon: <HelpCircle />,
+    },
+    {
+      closeBtn: true,
+      id: 5,
+      alertTxt: "You can check in on some of those fields below.",
+      alertColor: "warning dark",
+      btnClose: "default",
+      icon: <Bell />,
+    },
+    {
+      closeBtn: true,
+      id: 6,
+      alertTxt: "You can check in on some of those fields below.",
+      alertColor: "danger dark",
+      btnClose: "default",
+      icon: <ThumbsDown />,
+    },
+    {
+      closeBtn: true,
+      id: 7,
+      alertTxt: "You can check in on some of those fields below.",
+      alertColor: "light dark",
+      btnClose: "default",
+      icon: <AlertTriangle />,
+    },
+    {
+      closeBtn: true,
+      id: 8,
+      alertTxt: "You can check in on some of those fields below.",
+      alertColor: "dark dark",
+      btnClose: "default",
+      icon: <AlertCircle />,
+    },
+  ];

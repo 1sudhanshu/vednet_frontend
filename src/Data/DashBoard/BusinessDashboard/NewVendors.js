@@ -1,0 +1,65 @@
+import {
+  AnnaStrong,
+  MilanoEsco,
+  NickStone,
+  WiltorNoice,
+} from "../../../Constant";
+
+export let NewVendorsData = [
+  {
+    imageSrc: "2.png",
+    name: NickStone,
+    icon: <span className="fi fi-gb"></span>,
+    Date: "10 May 2023",
+    Payment: "COD",
+    Amount: "8652.00 $",
+  },
+  {
+    imageSrc: "5.jpg",
+    name: MilanoEsco,
+    icon: <span className="fi fi-lr"></span>,
+    Date: "10 May 2023",
+    Payment: "COD",
+    Amount: "102.00 $",
+  },
+  {
+    imageSrc: "3.jpg",
+    name: WiltorNoice,
+    icon: <span className="fi fi-za"></span>,
+    Date: "	10 May 2023",
+    Payment: "Cash",
+    Amount: "2315.00 $    ",
+  },
+  {
+    imageSrc: "4.jpg",
+    name: AnnaStrong,
+    icon: <span className="fi fi-at"></span>,
+    Date: "10 May 2023",
+    Payment: "Bank",
+    Amount: "4513.00 $ ",
+  },
+  {
+    imageSrc: "12.png",
+    name: AnnaStrong,
+    icon: <span className="fi fi-lr"></span>,
+    Date: "10 May 2023",
+    Payment: "Cheque",
+    Amount: "4513.00 $",
+  },
+  {
+    imageSrc: "5.jpg",
+    name: AnnaStrong,
+    icon: <span className="fi fi-gb"></span>,
+    Date: "10 May 2023",
+    Payment: "Cheque",
+    Amount: "4513.00 $",
+  },
+  {
+    imageSrc: "10.jpg",
+    name: AnnaStrong,
+    icon: <span className="fi fi-za"></span>,
+    Date: "10 May 2023",
+    Payment: "Cash",
+    Amount: "4513.00 $",
+  },
+];

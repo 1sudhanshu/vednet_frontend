@@ -1,0 +1,56 @@
+import { A, C, E, H, RecentTextHeading1, RecentTextHeading2, RecentTextHeading3, RecentTextHeading4, RecentTextHeading5, T } from "../../../Constant";
+
+export let RecentActivityData = [
+  {
+    SpanTag: true,
+    headingTag: true,
+    SpanClass: "font-primary",
+    span: A,
+    Heading: RecentTextHeading1,
+    Date: "25 July 2023",
+    Time: "20 hours ago",
+  },
+  {
+    SpanTag: true,
+    headingTag: true,
+    SpanClass: "font-secondary",
+    span: C,
+    Heading: RecentTextHeading2,
+    Date: "25 July 2023",
+    Time: "20 hours ago",
+  },
+  {
+    SpanTag: true,
+    headingTag: true,
+    SpanClass: "font-primary",
+    span: E,
+    Heading: RecentTextHeading3,
+    Date: "25 July 2023",
+    Time: "20 hours ago",
+  },
+  {
+    SpanTag: true,
+    headingTag: true,
+    SpanClass: "font-secondary",
+    span: H,
+    Heading: RecentTextHeading4,
+    Date: "25 July 2023",
+    Time: "20 hours ago",
+  },
+  {
+    SpanTag: true,
+    headingTag: true,
+    SpanClass: "font-primary",
+    span: T,
+    Heading: RecentTextHeading5,
+    Date: "25 July 2023",
+    Time: "20 hours ago",
+  },
+  {
+    SpanClass: "font-primary",
+    span: T,
+    Heading: RecentTextHeading5,
+    Date: "25 July 2023",
+    Time: "20 hours ago",
+  },
+];
