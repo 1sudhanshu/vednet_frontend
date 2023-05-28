@@ -2,12 +2,12 @@ export let projectOverViewDatas = [
     {
       headingClassName: "font-primary",
       heading: 18,
-      paragraph: "Active Cases",
+      paragraph: "Active Events",
     },
     {
       headingClassName: "font-secondary",
       heading: 143,
-      paragraph: "Pending Tasks",
+      paragraph: "Pending Events",
     },
     {
       headingClassName: "font-success",

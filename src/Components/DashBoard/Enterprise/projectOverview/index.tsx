@@ -2,6 +2,7 @@ import { Col, Row } from "reactstrap";
 import ProjectOverviewHeading from "./ProjectOverviewHeading";
 import TaskCompletionLevel from "./TaskCompletionLevel";
 import Tasks from "./Tasks";
+import MonthlySale from "../MonthlySale";
 
 const ProjectOverview = () => {
   return (
@@ -9,7 +10,7 @@ const ProjectOverview = () => {
       <Row>
         <ProjectOverviewHeading />
         <TaskCompletionLevel />
-        <Tasks/>
+        <MonthlySale/>
       </Row>
     </Col>
   );

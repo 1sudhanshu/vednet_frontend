@@ -5,8 +5,8 @@ import EnterpriseContainer from "../../../Components/DashBoard/Enterprise";
 const Enterprise = () => {
   return (
     <Fragment>
-      <div className="page-body">
-        <Breadcrumbs parent="DashBoard" title="Enterprise" />
+      <div className="page-body" style={{paddingTop:20}}>
+        {/* <Breadcrumbs parent="DashBoard" title="Enterprise" /> */}
         <EnterpriseContainer />
       </div>
     </Fragment>

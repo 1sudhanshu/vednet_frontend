@@ -12,16 +12,16 @@ const EnterpriseContainer = () => {
     <Container fluid={true}>
       <Row>
         <ProjectOverview />
-        <FirmActivity />
-        <ProjectStatus />
+        {/* <FirmActivity />
+        <ProjectStatus /> 
         <MonthlySale />
-        <Col sm="12" className=" box-col-12">
+        {/* <Col sm="12" className=" box-col-12">
           <Row className=" overall-report">
             <TotalEmployee />
             <TotalProducts />
             <MonthlyRevenue />
           </Row>
-        </Col>
+        </Col> */}
       </Row>
     </Container>
   );

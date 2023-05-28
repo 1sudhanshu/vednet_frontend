@@ -9,7 +9,7 @@ const LeftHeader = () => {
     <div className="main-header-left">
       <div className="logo-wrapper" >
       <Link to={`${process.env.PUBLIC_URL}/dashboard/enterprise`}>
-        <Image body={true} src={dynamicImage("logo_dark.png")} alt="logo"/>     
+        <Image body={true} src={dynamicImage("logo_white.png")} alt="logo"/>     
       </Link>
       </div> 
     </div>

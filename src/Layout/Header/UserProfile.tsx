@@ -31,9 +31,6 @@ const UserProfile = () => {
             {Profile}
           </Link>
         </LI>
-        <LI className="f-w-600">Home</LI>
-        {ProfilesMessage.map((detail, index) => (<LI key={index} className="f-12">
-        <Link to={`${process.env.PUBLIC_URL}/email/email-app`}><ChevronRight />{detail.name}</Link></LI>))}
         <LI onClick={handleLogOut}>
           <LogIn />
           {Logout}

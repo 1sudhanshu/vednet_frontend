@@ -9,7 +9,7 @@ const MonthlySale = () => {
       <Row>
         <Sale />
         <Invoices />
-        <MyStatus />
+        {/* <MyStatus /> */}
       </Row>
     </Col>
   );
