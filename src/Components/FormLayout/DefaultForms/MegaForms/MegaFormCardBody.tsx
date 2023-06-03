@@ -5,48 +5,30 @@ import MegaFormCommon from "./common/MegaFormCommon";
 import { useEffect, useState } from "react";
 import {ethers} from 'ethers';
 
-
 interface Method {
   methodName: string;
   methodId: string;
 }
 
-const MegaFormCardBody = () => {
 
-  const [contractAddress, setContractAddress] = useState('');
+interface MegaFormsCardProps {
+  contractAddress: string;
+  selectedMethodId:string;
+  endpoint:string;
+  gaurdian:string;
+  chain:string;
+  handleChange: (event:React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const MegaFormCardBody:React.FC<MegaFormsCardProps> = ({contractAddress,selectedMethodId,endpoint,gaurdian,chain,handleChange}) => {
+  
   const [methodIds, setMethodIds] = useState<Method[]>([]);
-
-  const [selectedMethodId ,selectedMethod] = useState('');
-  const [endpoint, setEndpoint] = useState('');
-  const [guardian, setGuardian] = useState('');
-  const [chain, setChain] = useState('');
-
 
   useEffect(()=>{
     if(contractAddress.length === 42){
       fetchSmartContract(contractAddress);
     }
   },[contractAddress])
-
-  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setContractAddress(event.target.value);
-  //  }
-
-  //  const handleMethodIdSelectValue =(event: React.ChangeEvent<HTMLInputElement>) =>{
-  //   selectedMethod(event.target.value);
-  //   console.log("Method ID",selectedMethodId)
-  //  }
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-  
-    if (name === 'contractAddress') {
-      setContractAddress(value);
-    } else if (name === 'methodId') {
-      selectedMethod(value);
-      console.log("MethodId value", value);
-    }
-  }
 
   const fetchSmartContract = async(contractAddress:string) => {
     try{
@@ -84,7 +66,6 @@ const MegaFormCardBody = () => {
         <H6>{AccountInformation}</H6>
         <MegaFormCommon label={ContractAddress} name="contractAddress" type="text" placeholder="0xe688b84b23f322a9s4as3dcf8e15fa82cdb7...." onChange={handleChange}/>
 
-
         <div className="form-group">
           <label htmlFor="methodId">{MethodId}</label>
           <Input type="select" id="methodId" value={selectedMethodId} name="methodId" onChange={handleChange}>
@@ -97,12 +78,12 @@ const MegaFormCardBody = () => {
           </Input>
         </div>
         {/* <MegaFormCommon label={MethodId} type="text" placeholder="0xe688b84b23f322a994a53dbf8e16fa82ddb7...." /> */}
-        <MegaFormCommon label={Endpoint} type="text" placeholder="https://example.com" />
-        <MegaFormCommon label={Gaurdian} type="text" placeholder="0xe688b84b23f322a994a53dbf8e16fa82ddb7...." />
+        <MegaFormCommon label={Endpoint} type="text" value={endpoint} name="endpoint" placeholder="https://example.com" onChange={handleChange} />
+        <MegaFormCommon label={Gaurdian} type="text"value={gaurdian}  name="gaurdian" placeholder="0xe688b84b23f322a994a53dbf8e16fa82ddb7...." onChange={handleChange} />
 
         <div className="form-group">
           <label htmlFor="chain">{Chain}</label>
-          <Input type="select" id="chain">
+          <Input type="select" id="chain" value={chain}>
             <option value="Polygon">Polygon</option>
             <option value="Ethereum">Ethereum</option>
             <option value="Binance Smart Chain">Binance Smart Chain</option>
@@ -112,6 +93,8 @@ const MegaFormCardBody = () => {
         {/* <MegaFormCommon label={Chain} type="text" placeholder="Polygon" /> */}
       </Form>
     </CardBody>
+
+   
   );
 };
 export default MegaFormCardBody;
