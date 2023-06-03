@@ -5,12 +5,13 @@ interface propType {
   type:"text" |"email" |"number"|"select";
   placeholder:string;
   onChange?: (event:React.ChangeEvent<HTMLInputElement> ) =>void;
+  name?:string
 }
-const MegaFormCommon = ({ label, type, placeholder,onChange }: propType) => {
+const MegaFormCommon = ({ label, type, placeholder,onChange,name }: propType) => {
   return (
     <FormGroup>
       <Label className="col-form-label">{label}</Label>
-      <Input type={type} placeholder={placeholder} onChange={onChange}/>
+      <Input type={type} placeholder={placeholder} onChange={onChange} name={name}/>
     </FormGroup>
   );
 };

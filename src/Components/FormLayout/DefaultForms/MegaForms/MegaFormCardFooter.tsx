@@ -6,7 +6,7 @@ import { Cancel, Submit } from "../../../../Constant";
 const MegaFormCardFooter = () => {
   return (
     <CardFooter>
-      <Btn color="primary" className="me-2">
+      <Btn color="primary" className="me-2" >
         {Submit}
       </Btn>
       <Btn color="secondary">{Cancel}</Btn>

@@ -4,9 +4,23 @@ import { CardBody, Form,Input } from "reactstrap";
 import MegaFormCommon from "./common/MegaFormCommon";
 import { useEffect, useState } from "react";
 import {ethers} from 'ethers';
+
+
+interface Method {
+  methodName: string;
+  methodId: string;
+}
+
 const MegaFormCardBody = () => {
 
   const [contractAddress, setContractAddress] = useState('');
+  const [methodIds, setMethodIds] = useState<Method[]>([]);
+
+  const [selectedMethodId ,selectedMethod] = useState('');
+  const [endpoint, setEndpoint] = useState('');
+  const [guardian, setGuardian] = useState('');
+  const [chain, setChain] = useState('');
+
 
   useEffect(()=>{
     if(contractAddress.length === 42){
@@ -14,17 +28,27 @@ const MegaFormCardBody = () => {
     }
   },[contractAddress])
 
+  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setContractAddress(event.target.value);
+  //  }
+
+  //  const handleMethodIdSelectValue =(event: React.ChangeEvent<HTMLInputElement>) =>{
+  //   selectedMethod(event.target.value);
+  //   console.log("Method ID",selectedMethodId)
+  //  }
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setContractAddress(event.target.value);
-    
-  };
-
-
+    const { name, value } = event.target;
   
+    if (name === 'contractAddress') {
+      setContractAddress(value);
+    } else if (name === 'methodId') {
+      selectedMethod(value);
+      console.log("MethodId value", value);
+    }
+  }
 
   const fetchSmartContract = async(contractAddress:string) => {
-    // Your API call logic goes here
-    console.log('Calling API...');
     try{
       const response = await fetch(`https://api.etherscan.io/api?module=contract&action=getabi&address=${contractAddress}&apikey=${"VRM64BUPQV99D28R47CKDINBMDD4VMMXFA"}`);
     if (!response.ok) {
@@ -32,14 +56,22 @@ const MegaFormCardBody = () => {
     }
     const data = await response.json();
    
-    console.log(JSON.parse(data.result));
-
-    for(let contract of data.result){
-      console.log(contract.signature);
-      const methodId = ethers.keccak256(contract.signature).substring(0, 10);
-      console.log(methodId);
-
+    const abi =JSON.parse(data.result);
+    
+    const finalListOfMethodIdAndMethodName =[];
+    for(let contract of abi){
+      if (contract.type === 'function') {
+         const methodSignature = `${contract.name}(${contract.inputs.map((input: any) => input.type).join(',')})`;
+        const methodId = ethers.keccak256(ethers.toUtf8Bytes(methodSignature)).substring(0, 10);
+        const tempObj ={
+          methodName:contract.name,
+          methodId:methodId
+        }
+        finalListOfMethodIdAndMethodName.push(tempObj)
+      }
     }
+     setMethodIds(finalListOfMethodIdAndMethodName);
+     return finalListOfMethodIdAndMethodName;
    
   } catch (error) {
   }
@@ -50,16 +82,18 @@ const MegaFormCardBody = () => {
     <CardBody>
       <Form className="theme-form mega-form">
         <H6>{AccountInformation}</H6>
-        <MegaFormCommon label={ContractAddress} type="text" placeholder="0xe688b84b23f322a9s4as3dcf8e15fa82cdb7...." onChange={handleChange}/>
+        <MegaFormCommon label={ContractAddress} name="contractAddress" type="text" placeholder="0xe688b84b23f322a9s4as3dcf8e15fa82cdb7...." onChange={handleChange}/>
 
 
         <div className="form-group">
-          <label htmlFor="chain">{MethodId}</label>
-          <Input type="select" id="chain">
-            <option value="0xe688b84b23f322a994a53dbf8e16fa82ddb7432">0xe688b84b23f322a994a53dbf8e16fa82ddb7432</option>
-            <option value="0xe688b84b23f322a994a53dbf8e16fa82ddb7853">0xe688b84b23f322a994a53dbf8e16fa82ddb7853</option>
-            <option value="0xe688b84b23f322a994a53dbf8e16fa82ddb7678">0xe688b84b23f322a994a53dbf8e16fa82ddb7678</option>
-            {/* Add more options as needed */}
+          <label htmlFor="methodId">{MethodId}</label>
+          <Input type="select" id="methodId" value={selectedMethodId} name="methodId" onChange={handleChange}>
+            <option value="">Select...</option>
+            {methodIds.map((method) => (
+              <option key={method.methodId} value={method.methodId}>
+                {method.methodName}
+              </option>
+            ))}
           </Input>
         </div>
         {/* <MegaFormCommon label={MethodId} type="text" placeholder="0xe688b84b23f322a994a53dbf8e16fa82ddb7...." /> */}
