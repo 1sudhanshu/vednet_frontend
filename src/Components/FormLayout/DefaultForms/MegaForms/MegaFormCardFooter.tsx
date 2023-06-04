@@ -9,23 +9,31 @@ const MegaFormCardFooter = (props:any) => {
   const handleSubmit = async () => {
     try {
       // Prepare the form data object
+      const user_id ="1";
+      const contract_address =contractAddress
+      const method_id = methodId
       const formData = {
-        contractAddress,
-        methodId,
+        contract_address,
+        method_id,
         endpoint,
         gaurdian,
-        chain
+        chain,
+        user_id
+
       };
 
       console.log(formData)
 
       // Send the form data to the API
-      const response = await fetch('https://api.example.com/submit', {
+      const response = await fetch('https://5312-49-207-230-123.ngrok-free.app/v1/coordinator/insert', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Acess-Control-Allow-Origin':'*',
+          'X-VedNet-Userid':'1',
         },
         body: JSON.stringify(formData),
+        mode: 'no-cors',
       });
 
       // Handle the response from the API

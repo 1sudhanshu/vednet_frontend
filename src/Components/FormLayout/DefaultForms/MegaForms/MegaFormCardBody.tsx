@@ -83,7 +83,7 @@ const MegaFormCardBody:React.FC<MegaFormsCardProps> = ({contractAddress,selected
 
         <div className="form-group">
           <label htmlFor="chain">{Chain}</label>
-          <Input type="select" id="chain" value={chain}>
+          <Input type="select" id="chain" value={chain} name="chain" onChange={handleChange}>
             <option value="Polygon">Polygon</option>
             <option value="Ethereum">Ethereum</option>
             <option value="Binance Smart Chain">Binance Smart Chain</option>

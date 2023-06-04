@@ -26,6 +26,7 @@ const MegaFormsCard = () => {
       setGuardian(value);
     }else if(name === 'chain'){
       setChain(value);
+      console.log(value)
     }
   }
 
