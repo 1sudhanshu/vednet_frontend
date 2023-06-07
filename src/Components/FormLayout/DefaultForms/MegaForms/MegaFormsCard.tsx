@@ -7,35 +7,54 @@ import { useState } from "react";
 
 const MegaFormsCard = () => {
   const [contractAddress, setContractAddress] = useState('');
-  const [selectedMethodId ,selectedMethod] = useState('');
+  const [selectedMethodId, selectedMethod] = useState('');
   const [endpoint, setEndpoint] = useState('');
   const [gaurdian, setGuardian] = useState('');
   const [chain, setChain] = useState('');
+  const [abiFetched, setAbiFetched] = useState(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-  
+
     if (name === 'contractAddress') {
       setContractAddress(value);
+      setAbiFetched(value === "" || value.length < 42); // Check if contract address is empty or less than 42 characters
     } else if (name === 'methodId') {
       selectedMethod(value);
       console.log("MethodId value", value);
-    } else if (name === 'endpoint'){
+    } else if (name === 'endpoint') {
       setEndpoint(value);
-    }else if(name === 'gaurdian'){
+    } else if (name === 'gaurdian') {
       setGuardian(value);
-    }else if(name === 'chain'){
+    } else if (name === 'chain') {
       setChain(value);
-      console.log(value)
+      console.log(value);
     }
   }
 
   return (
-    <Col sm="12" md="12" lg ="12">
+    <Col sm="12" md="12" lg="12">
       <Card className="card-custom">
         <HeadingCommon Heading={EventTrigger} />
-        <MegaFormCardBody contractAddress ={ contractAddress} selectedMethodId ={selectedMethodId} endpoint ={endpoint} gaurdian ={gaurdian} chain ={chain} handleChange={handleChange}/>
-        <MegaFormCardFooter contractAddress ={ contractAddress} methodId ={selectedMethodId} endpoint ={endpoint} gaurdian ={gaurdian} chain ={chain} />
+        <MegaFormCardBody
+          contractAddress={contractAddress}
+          selectedMethodId={selectedMethodId}
+          endpoint={endpoint}
+          gaurdian={gaurdian}
+          chain={chain}
+          handleChange={handleChange}
+          abiFetched={abiFetched}
+          setAbiFetched={setAbiFetched}
+        />
+        {abiFetched && contractAddress.length === 42 && (
+          <MegaFormCardFooter
+            contractAddress={contractAddress}
+            methodId={selectedMethodId}
+            endpoint={endpoint}
+            gaurdian={gaurdian}
+            chain={chain}
+          />
+        )}
       </Card>
     </Col>
   );

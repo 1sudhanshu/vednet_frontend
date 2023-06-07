@@ -22,9 +22,8 @@ const MegaFormCardFooter = (props:any) => {
 
       };
 
-      console.log(formData)
-
-      // Send the form data to the API
+  
+      // Send the form data to the API- PUT the endpoint here
       const response = await fetch('https://5312-49-207-230-123.ngrok-free.app/v1/coordinator/insert', {
         method: 'POST',
         headers: {

@@ -2,7 +2,7 @@ import React from "react";
 import { FormGroup, Label, Input } from "reactstrap";
 interface propType {
   label:string;
-  type:"text" |"email" |"number"|"select";
+  type:"text" |"email" |"number"|"select" |"textarea";
   placeholder:string;
   onChange?: (event:React.ChangeEvent<HTMLInputElement> ) =>void;
   name?:string
