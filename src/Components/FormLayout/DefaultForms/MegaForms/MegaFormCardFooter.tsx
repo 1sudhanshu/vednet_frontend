@@ -4,7 +4,7 @@ import { Btn } from "../../../../AbstractElements";
 import { Cancel, Submit } from "../../../../Constant";
 
 const MegaFormCardFooter = (props:any) => {
-  const { contractAddress, methodId,endpoint,gaurdian,chain } = props;
+  const { contractAddress, methodId,endpoint,guardian,chain } = props;
 
   const handleSubmit = async () => {
     try {
@@ -16,7 +16,7 @@ const MegaFormCardFooter = (props:any) => {
         contract_address,
         method_id,
         endpoint,
-        gaurdian,
+        guardian,
         chain,
         user_id
 

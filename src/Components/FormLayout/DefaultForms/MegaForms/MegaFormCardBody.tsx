@@ -1,5 +1,5 @@
 import { H6 } from "../../../../AbstractElements";
-import { AccountInformation, Chain, MethodId, Gaurdian, ContractAddress, Endpoint } from "../../../../Constant";
+import { AccountInformation, Chain, MethodId, guardian, ContractAddress, Endpoint } from "../../../../Constant";
 import { CardBody, Form, Input } from "reactstrap";
 import MegaFormCommon from "./common/MegaFormCommon";
 import { useEffect, useState } from "react";
@@ -14,16 +14,19 @@ interface MegaFormsCardProps {
   contractAddress: string;
   selectedMethodId: string;
   endpoint: string;
-  gaurdian: string;
+  guardian: string;
   chain: string;
   abiFetched:boolean;
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   setAbiFetched: (value: boolean) => void;
 }
 
-const MegaFormCardBody: React.FC<MegaFormsCardProps> = ({ contractAddress, selectedMethodId, endpoint, gaurdian, chain, handleChange, abiFetched,setAbiFetched  }) => {
+const MegaFormCardBody: React.FC<MegaFormsCardProps> = ({ contractAddress, selectedMethodId, endpoint, guardian, chain, handleChange, abiFetched,setAbiFetched  }) => {
 
   const [methodIds, setMethodIds] = useState<Method[]>([]);
+  const [abiValid, setAbiValid] = useState(true);
+  
+
 
 
   useEffect(() => {
@@ -67,6 +70,23 @@ const MegaFormCardBody: React.FC<MegaFormsCardProps> = ({ contractAddress, selec
     }
   };
 
+
+  //To validate the ABI entered by the user
+  const handleAbiChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    handleChange(event);
+    validateAbi(value.trim());
+  };
+
+  const validateAbi = (value: string) => {
+    try {
+      JSON.parse(value);
+      setAbiValid(true);
+    } catch (error) {
+      setAbiValid(false);
+    }
+  };
+
   return (
     <CardBody>
       <Form className="theme-form mega-form">
@@ -74,8 +94,10 @@ const MegaFormCardBody: React.FC<MegaFormsCardProps> = ({ contractAddress, selec
         <MegaFormCommon label={ContractAddress} name="contractAddress" type="text" placeholder="0xe688b84b23f322a9s4as3dcf8e15fa82cdb7...." onChange={handleChange} />
 
         {!abiFetched && contractAddress.length === 42 &&(
-          <MegaFormCommon label="ABI Not Found" type="textarea" placeholder="ABI not found for the entered contract address." />
+          <MegaFormCommon label="ABI Not Found" type="textarea" placeholder="ABI not found for the entered contract address." onChange={handleAbiChange} />
         )}
+
+
         { abiFetched && (
           <>
             <div className="form-group">
@@ -92,7 +114,7 @@ const MegaFormCardBody: React.FC<MegaFormsCardProps> = ({ contractAddress, selec
 
             <MegaFormCommon label={Endpoint} type="text" value={endpoint} name="endpoint" placeholder="https://example.com" onChange={handleChange} />
 
-            <MegaFormCommon label={Gaurdian} type="text" value={gaurdian} name="gaurdian" placeholder="0xe688b84b23f322a994a53dbf8e16fa82ddb7...." onChange={handleChange} />
+            <MegaFormCommon label={guardian} type="text" value={guardian} name="guardian" placeholder="0xe688b84b23f322a994a53dbf8e16fa82ddb7...." onChange={handleChange} />
 
             <div className="form-group">
               <label htmlFor="chain">{Chain}</label>

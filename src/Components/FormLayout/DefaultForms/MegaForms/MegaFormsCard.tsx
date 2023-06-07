@@ -9,7 +9,7 @@ const MegaFormsCard = () => {
   const [contractAddress, setContractAddress] = useState('');
   const [selectedMethodId, selectedMethod] = useState('');
   const [endpoint, setEndpoint] = useState('');
-  const [gaurdian, setGuardian] = useState('');
+  const [guardian, setGuardian] = useState('');
   const [chain, setChain] = useState('');
   const [abiFetched, setAbiFetched] = useState(false);
 
@@ -24,7 +24,7 @@ const MegaFormsCard = () => {
       console.log("MethodId value", value);
     } else if (name === 'endpoint') {
       setEndpoint(value);
-    } else if (name === 'gaurdian') {
+    } else if (name === 'guardian') {
       setGuardian(value);
     } else if (name === 'chain') {
       setChain(value);
@@ -40,7 +40,7 @@ const MegaFormsCard = () => {
           contractAddress={contractAddress}
           selectedMethodId={selectedMethodId}
           endpoint={endpoint}
-          gaurdian={gaurdian}
+          guardian={guardian}
           chain={chain}
           handleChange={handleChange}
           abiFetched={abiFetched}
@@ -51,7 +51,7 @@ const MegaFormsCard = () => {
             contractAddress={contractAddress}
             methodId={selectedMethodId}
             endpoint={endpoint}
-            gaurdian={gaurdian}
+            guardian={guardian}
             chain={chain}
           />
         )}
