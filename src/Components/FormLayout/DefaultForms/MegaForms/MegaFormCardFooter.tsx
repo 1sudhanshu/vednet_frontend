@@ -1,10 +1,11 @@
-import React from "react";
-import { CardFooter } from "reactstrap";
+import React, { useState } from "react";
+import { CardFooter, Modal, ModalBody, ModalHeader } from "reactstrap";
 import { Btn } from "../../../../AbstractElements";
 import { Cancel, Submit } from "../../../../Constant";
 
 const MegaFormCardFooter = (props:any) => {
-  const { contractAddress, methodId,endpoint,guardian,chain } = props;
+  const { contractAddress, methodId,endpoint,guardian,chain, handleChangeAfterSubmission } = props;
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSubmit = async () => {
     try {
@@ -34,12 +35,15 @@ const MegaFormCardFooter = (props:any) => {
         body: JSON.stringify(formData),
         mode: 'no-cors',
       });
-
+       setIsModalOpen(true);
       // Handle the response from the API
       if (response.ok) {
         // Request was successful
         const data = await response.json();
-        console.log('API response:', data);
+        //console.log('API response:', data);
+        //setIsModalOpen(true);
+        
+        
       } else {
         // Request failed
         console.error('API request failed:', response.status);
@@ -52,13 +56,24 @@ const MegaFormCardFooter = (props:any) => {
     // setContractAddress('');
     // setMethodId('');
   };
+  const closeModal = () => {
+    setIsModalOpen(false);
+    handleChangeAfterSubmission(); // Close the modal
+  };
 
   return (
     <CardFooter>
       <Btn color="primary" className="me-2" onClick={handleSubmit}>
         {Submit}
       </Btn>
-      <Btn color="secondary">{Cancel}</Btn>
+      <Btn color="secondary" onClick={handleChangeAfterSubmission}>{Cancel}</Btn>
+
+      <Modal isOpen={isModalOpen} toggle={closeModal}>
+        <ModalHeader toggle={closeModal}>Submission Successful</ModalHeader>
+        <ModalBody>
+          Thanks for submitting details!
+        </ModalBody>
+      </Modal>
     </CardFooter>
   );
 };

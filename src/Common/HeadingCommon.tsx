@@ -26,6 +26,7 @@ interface propsTypes {
 const HeadingCommon = (props: propsTypes) => {
   return (
     <CardHeader className={props.className}>
+      
       <H5 className={props.H5ClassName}>
         {props.icon && props.icon}
         {props.Heading}

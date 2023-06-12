@@ -12,8 +12,9 @@ const MegaFormsCard = () => {
   const [guardian, setGuardian] = useState('');
   const [chain, setChain] = useState('');
   const [abiFetched, setAbiFetched] = useState(false);
+  const [isContractAddressSubmitted,submittedContractAddress] = useState(false);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange =(event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = event.target;
 
     if (name === 'contractAddress') {
@@ -28,8 +29,18 @@ const MegaFormsCard = () => {
       setGuardian(value);
     } else if (name === 'chain') {
       setChain(value);
-      console.log(value);
     }
+  }
+
+  const handleChangeAfterSubmission = () =>{
+    setContractAddress('');
+    submittedContractAddress(true);
+    selectedMethod('')
+    setEndpoint('')
+    setGuardian('')
+    setChain('')
+    console.log(contractAddress);
+    console.log(isContractAddressSubmitted)
   }
 
   return (
@@ -45,6 +56,8 @@ const MegaFormsCard = () => {
           handleChange={handleChange}
           abiFetched={abiFetched}
           setAbiFetched={setAbiFetched}
+          isContractAddressSubmitted = {isContractAddressSubmitted}
+          setContractAddress = {setContractAddress}
         />
         {abiFetched && contractAddress.length === 42 && (
           <MegaFormCardFooter
@@ -53,6 +66,8 @@ const MegaFormsCard = () => {
             endpoint={endpoint}
             guardian={guardian}
             chain={chain}
+            handleChangeAfterSubmission ={handleChangeAfterSubmission}
+
           />
         )}
       </Card>
