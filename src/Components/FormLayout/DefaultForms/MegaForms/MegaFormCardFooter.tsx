@@ -2,10 +2,24 @@ import React, { useState } from "react";
 import { CardFooter, Modal, ModalBody, ModalHeader } from "reactstrap";
 import { Btn } from "../../../../AbstractElements";
 import { Cancel, Submit } from "../../../../Constant";
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+
 
 const MegaFormCardFooter = (props:any) => {
   const { contractAddress, methodId,endpoint,guardian,chain, handleChangeAfterSubmission } = props;
-  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showSweetAlert = (): void => {
+   Swal.fire({
+    title:'Success',
+    text: 'Thanks for Submitting!',
+    icon:'success',
+    background:"#212529",
+    confirmButtonColor:"#148df6"
+   })
+  };
+
+  
 
   const handleSubmit = async () => {
     try {
@@ -35,13 +49,15 @@ const MegaFormCardFooter = (props:any) => {
         body: JSON.stringify(formData),
         mode: 'no-cors',
       });
-       setIsModalOpen(true);
+       //setIsModalOpen(true);
+      showSweetAlert();
+      handleChangeAfterSubmission();
       // Handle the response from the API
       if (response.ok) {
         // Request was successful
         const data = await response.json();
         //console.log('API response:', data);
-        //setIsModalOpen(true);
+      //showSweetAlert();
         
         
       } else {
@@ -56,24 +72,13 @@ const MegaFormCardFooter = (props:any) => {
     // setContractAddress('');
     // setMethodId('');
   };
-  const closeModal = () => {
-    setIsModalOpen(false);
-    handleChangeAfterSubmission(); // Close the modal
-  };
-
+ 
   return (
     <CardFooter>
       <Btn color="primary" className="me-2" onClick={handleSubmit}>
         {Submit}
       </Btn>
       <Btn color="secondary" onClick={handleChangeAfterSubmission}>{Cancel}</Btn>
-
-      <Modal isOpen={isModalOpen} toggle={closeModal}>
-        <ModalHeader toggle={closeModal}>Submission Successful</ModalHeader>
-        <ModalBody>
-          Thanks for submitting details!
-        </ModalBody>
-      </Modal>
     </CardFooter>
   );
 };

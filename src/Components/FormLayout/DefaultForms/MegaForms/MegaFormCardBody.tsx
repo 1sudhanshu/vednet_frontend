@@ -50,7 +50,7 @@ const MegaFormCardBody: React.FC<MegaFormsCardProps> = ({ contractAddress, selec
 
   const fetchSmartContract = async (contractAddress: string) => {
     try {
-      const response = await fetch(`https://api.etherscan.io/api?module=contract&action=getsourcecode&address=${contractAddress}&apikey=${"VRM64BUPQV99D28R47CKDINBMDD4VMMXFA"}`);
+      const response = await fetch(`https://api.etherscan.io/api?module=contract&action=getsourcecode&address=${contractAddress}&apikey=${process.env.ETHERSCAN_API_KEY}`);
       if (!response.ok) {
         throw new Error('Request failed');
       }
@@ -143,7 +143,7 @@ const MegaFormCardBody: React.FC<MegaFormsCardProps> = ({ contractAddress, selec
        <div className="d-flex justify-content-end mb-3 " >
         <Dropdown isOpen={chainDropdownOpen} toggle={toggleChainDropdown}>
           <DropdownToggle caret >
-            {chain ? chain : "Select Chain"}
+            {chain ? chain : "Ethereum"}
           </DropdownToggle>
           <DropdownMenu right>
             <DropdownItem style={{color:"#B7B7BA"}}  onClick={() => handleChange({ target  : { name: 'chain', value: 'Ethereum' } }as React.ChangeEvent<HTMLSelectElement>)}>Ethereum</DropdownItem>
